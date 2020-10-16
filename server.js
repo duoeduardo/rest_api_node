@@ -1,5 +1,9 @@
 const http = require("http");
-const { getProducts, getProduct } = require("./controllers/productsController");
+const {
+  getProducts,
+  getProduct,
+  createProduct,
+} = require("./controllers/productsController");
 
 const server = http.createServer((req, res) => {
   /*res.statusCode = 200
@@ -9,10 +13,14 @@ const server = http.createServer((req, res) => {
   //Utizando WriteHEad se puede simplidicar
   if (req.url === "/api/products" && req.method === "GET") {
     getProducts(req, res);
-  }else if (req.url.match(/\/api\/products\/([0-9]+)/) && req.method === "GET"){
-
-    const id = req.url.split('/')[3]
-    getProduct(req,res,id)
+  } else if (
+    req.url.match(/\/api\/products\/([0-9]+)/) &&
+    req.method === "GET"
+  ) {
+    const id = req.url.split("/")[3];
+    getProduct(req, res, id);
+  } else if (req.url === "/api/products" && req.method == "POST") {
+    createProduct(req, res);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Route Not Found" }));
