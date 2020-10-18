@@ -34,5 +34,11 @@
         "title": "Eduardos Product",
         "description": "This is a Product",
         "price": 500
+    },
+    {
+        "id": "c32a9501-c509-443e-a11c-ffb3292adefa",
+        "title": "Xbox One Serie X",
+        "description": "New Xbox console",
+        "price": 500
     }
 ]
