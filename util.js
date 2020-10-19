@@ -11,25 +11,24 @@ function writeDataToFile(filename, content) {
 }
 
 function getPostData(req) {
-  return new Promise ((resolve, rejects) => {
+  return new Promise((resolve, rejects) => {
     try {
-      let body = ''
+      let body = "";
 
-      req.on('data', (chunk) => {
-        body += chunk.toString()
-      })
+      req.on("data", (chunk) => {
+        body += chunk.toString();
+      });
 
-      req.on('end', () => {
-        resolve(body)
-      })
-
+      req.on("end", () => {
+        resolve(body);
+      });
     } catch (error) {
-      rejects(err)
+      rejects(err);
     }
-  })
+  });
 }
 
 module.exports = {
   writeDataToFile,
-  getPostData
+  getPostData,
 };
